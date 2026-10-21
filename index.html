@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latihan Nahwu: Bina' Fi'il Mudhari'</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f5f7;--card:#fff;--ink:#13293d;--mut:#5a6b7a;--teal:#0f7b6c;--tbg:#dcf1ed;--red:#b3392f;--rbg:#f9e0dd;--line:#d3dde3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a24;--card:#162735;--ink:#e6eef3;--mut:#9db0be;--teal:#4fd1bb;--tbg:#123a37;--red:#ff8d82;--rbg:#43201d;--line:#2a3f50}}
+:root[data-theme="dark"]{--bg:#0e1a24;--card:#162735;--ink:#e6eef3;--mut:#9db0be;--teal:#4fd1bb;--tbg:#123a37;--red:#ff8d82;--rbg:#43201d;--line:#2a3f50}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 Figtree,Amiri,serif}
+main{max-width:720px;margin:0 auto;padding:16px 14px 60px}
+h1{font-size:1.4rem;margin:.2rem 0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+.mut{color:var(--mut);font-size:.9rem}
+input{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;margin:4px 0 10px}
+button{font:600 1rem Figtree,sans-serif;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.pri{background:var(--teal);color:#fff;border:0;border-radius:8px;padding:10px 20px;margin-top:8px}.pri:disabled{opacity:.45;cursor:default}
+.sec{background:transparent;color:var(--teal);border:1.5px solid var(--teal);border-radius:8px;padding:8px 16px;margin:6px 6px 0 0}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0 14px}.bar i{display:block;height:100%;background:var(--teal);width:0}
+.q{font-size:1.35rem;line-height:2}
+.opt{display:block;width:100%;text-align:start;margin-top:8px;padding:10px 14px;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:1.2rem/1.9 Figtree,Amiri,serif}
+.opt[aria-pressed=true]{border-color:var(--teal);background:var(--tbg)}
+.score{font-size:3rem;font-weight:700;text-align:center;color:var(--teal);line-height:1.2}
+.rv{border-radius:10px;padding:12px;margin-top:10px;border:1.5px solid var(--line)}.rv.ok{background:var(--tbg);border-color:var(--teal)}.rv.no{background:var(--rbg);border-color:var(--red)}
+.rv b.t{display:inline-block;font:700 .85rem Figtree,sans-serif;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}th,td{border:1px solid var(--line);padding:6px 8px;text-align:start}th{background:var(--tbg)}
+</style></head><body><main>
+<h1>Latihan Nahwu: بِنَاءُ فِعْلِ الْمُضَارِعِ</h1>
+<div id="app"></div><div id="teach"></div>
+</main>
+<script>
+const MS="مَبْنِيٌّ عَلَى السُّكُونِ",MF="مَبْنِيٌّ عَلَى الْفَتْحِ",MD="مَبْنِيٌّ عَلَى الضَّمِّ",MJ="مَجْزُومٌ وَعَلَامَةُ جَزْمِهِ السُّكُونُ",JZ=" فِي مَحَلِّ جَزْمٍ",RF="مَرْفُوعٌ بِثُبُوتِ النُّونِ",JH="مَجْزُومٌ بِحَذْفِ النُّونِ",RD="مَرْفُوعٌ وَعَلَامَةُ رَفْعِهِ الضَّمَّةُ";
+const NS=x=>"مُعْرَبٌ مَنْصُوبٌ بِ"+x+" وَعَلَامَةُ نَصْبِهِ الْفَتْحَةُ",JM=x=>"مُعْرَبٌ مَجْزُومٌ بِ"+x+" وَعَلَامَةُ جَزْمِهِ السُّكُونُ",NZ=" فِي مَحَلِّ نَصْبٍ",TQ="لِاتِّصَالِهِ بِنُونِ التَّوْكِيدِ ",NN="لِاتِّصَالِهِ بِنُونِ النِّسْوَةِ";
+const Q=[
+["Kapan fi'il mudhari' berstatus mabni?",["Jika didahului huruf nashab","Jika didahului huruf jazm","Jika bersambung nun niswah atau nun taukid secara langsung","Jika berupa af'alul khamsah"],2,"Selain dua keadaan itu, fi'il mudhari' tetap mu'rab, termasuk saat didahului huruf nashab atau jazm."],
+["Kelompok manakah yang semuanya huruf nashab?",["أَنْ، لَنْ، إِذَنْ، كَيْ","لَمْ، لَمَّا، لَا النَّاهِيَةُ","أَنْ، لَمْ، كَيْ، لَنْ","لَنْ، لَمَّا، إِذَنْ، أَنْ"],0,"Huruf nashab: أَنْ، لَنْ، إِذَنْ، كَيْ. Pilihan lain mengandung huruf jazm (لَمْ، لَمَّا)."],
+["Kelompok manakah yang semuanya huruf jazm?",["أَنْ، لَنْ، كَيْ","لَمْ، لَمَّا، لَا النَّاهِيَةُ","لَمْ، لَنْ، لَا","إِذَنْ، لَمَّا، لَمْ"],1,"Huruf jazm di soal ini: لَمْ، لَمَّا، لَا النَّاهِيَةُ (ditambah lam amr)."],
+["يُرِيدُ الْوَلَدُ أَنْ يَكْتُبَ الدَّرْسَ. Apa status dan i'rab يَكْتُبَ؟",[NS("أَنْ"),MF+" لِاتِّصَالِهِ بِأَنْ","مَجْزُومٌ بِأَنْ وَعَلَامَةُ جَزْمِهِ السُّكُونُ",RD],0,"Didahului huruf nashab (أَنْ), maka mu'rab manshub dengan fathah. Bukan mabni."],
+["لَمْ يَكْتُبْ مُحَمَّدٌ الدَّرْسَ. Apa status dan i'rab يَكْتُبْ؟",[MS,"مَنْصُوبٌ بِلَمْ وَعَلَامَةُ نَصْبِهِ الْفَتْحَةُ",RD,JM("لَمْ")],3,"Didahului huruf jazm (لَمْ), maka mu'rab majzum dengan sukun. Sukunnya tanda jazm, bukan mabni."],
+["لَمَّا يَنْجَحْ مُحَمَّدٌ. Apa status dan i'rab يَنْجَحْ؟",["مُعْرَبٌ مَنْصُوبٌ بِلَمَّا",MS,RD,JM("لَمَّا")],3,"لَمَّا adalah huruf jazm (artinya: belum). Fi'ilnya mu'rab majzum dengan sukun."],
+["لَا تُهْمِلْ وَاجِبَكَ. Mengapa تُهْمِلْ berstatus majzum?",["Karena didahului lan","Karena didahului an","Karena didahului la nahiyah (larangan)","Karena bersambung nun niswah"],2,"La nahiyah menjazmkan fi'il mudhari'. Fi'ilnya mu'rab, majzum dengan sukun."],
+["إِذَنْ تَنْجَحَ. Apa status dan i'rab تَنْجَحَ؟",[NS("إِذَنْ"),MF+" لِاتِّصَالِهِ بِإِذَنْ","مَجْزُومٌ بِإِذَنْ وَعَلَامَةُ جَزْمِهِ السُّكُونُ",RD],0,"إِذَنْ adalah huruf nashab (jika begitu). Fi'ilnya mu'rab manshub."],
+["ذَاكَرْتُ كَيْ أَنْجَحَ. Apa status dan i'rab أَنْجَحَ؟",[NS("كَيْ"),MF+" لِاتِّصَالِهِ بِكَيْ","مَجْزُومٌ بِكَيْ",RD],0,"كَيْ adalah huruf nashab (agar). Fi'ilnya mu'rab manshub."],
+["الْبَنَاتُ لَنْ يَذْهَبْنَ إِلَى السُّوقِ. Apa status يَذْهَبْنَ؟",[NS("لَنْ"),MF+NZ,MS+NZ,"مَجْزُومٌ بِلَنْ"],2,"Ada nun niswah, jadi mabni sukun. Karena didahului lan, kedudukannya mahal nashab."],
+["الْبَنَاتُ لَمْ يَخْرُجْنَ. Mengapa يَخْرُجْنَ tidak dikatakan mu'rab majzum?",["Karena lam bukan huruf jazm","Karena bersambung nun taukid langsung","Karena termasuk af'alul khamsah","Karena bersambung nun niswah, sehingga mabni sukun (mahal jazm)"],3,"Nun niswah membuatnya mabni sukun. Huruf jazm hanya mengubah mahal-nya menjadi jazm."],
+["الطُّلَّابُ لَنْ يَكْتُبُوا الدَّرْسَ. Apa i'rab يَكْتُبُوا؟",["مُعْرَبٌ مَنْصُوبٌ بِلَنْ وَعَلَامَةُ نَصْبِهِ حَذْفُ النُّونِ",MD,"مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الْفَتْحَةُ",MF],0,"Af'alul khamsah tetap mu'rab. Saat manshub, tanda nashabnya adalah dibuangnya nun."],
+["أَرَادَتِ الْبَنَاتُ أَنْ يَكْتُبْنَ الدَّرْسَ. Apa status dan i'rab يَكْتُبْنَ؟",[NS("أَنْ"),MF+NZ,MS+JZ,MS+NZ],3,"Ada nun niswah, jadi mabni sukun. Karena didahului huruf nashab أَنْ, kedudukannya mahal nashab."],
+["وَاللهِ لَأَكْتُبَنَّ الدَّرْسَ. Apa status dan alasan أَكْتُبَنَّ؟",["مُعْرَبٌ مَرْفُوعٌ وَعَلَامَةُ رَفْعِهِ الضَّمَّةُ",MF+" "+TQ+"الثَّقِيلَةِ مُبَاشَرَةً",MS,"مَنْصُوبٌ بِلَامِ الْقَسَمِ"],1,"Nun taukid tsaqilah (نَّ) menempel langsung: mabni fathah (mahal rafa')."],
+["لَيَسْمَعَنْ كَلَامِي. Apa status dan alasan يَسْمَعَنْ؟",[MS+" "+NN,"مُعْرَبٌ مَرْفُوعٌ وَعَلَامَةُ رَفْعِهِ الضَّمَّةُ",MF+" "+TQ+"الْخَفِيفَةِ مُبَاشَرَةً","مَجْزُومٌ وَعَلَامَةُ جَزْمِهِ السُّكُونُ"],2,"Nun taukid khafifah (نْ) menempel langsung: mabni fathah, bukan sukun."],
+["لَا تَظْلِمَنَّ أَحَدًا. Mengapa تَظْلِمَنَّ mabni fathah, bukan majzum?",["Karena la nahiyah membuatnya mabni","Karena fi'ilnya adalah fi'il amr","Karena nun taukid tsaqilah menempel langsung (mahal jazm)","Karena akhirnya sukun"],2,"Sebelum nun taukid, la nahiyah menjazmkan. Tapi nun taukid langsung membuatnya mabni fathah, mahal jazm."],
+["لَيَكْتُبُنَّ (jamak laki-laki). Mengapa tetap mu'rab, padahal ada nun taukid?",["Karena bersambung nun niswah","Karena nun taukid khafifah","Karena didahului lan","Karena nun taukid tidak langsung: dipisah wawu jamak yang dibuang"],3,"Aslinya يَكْتُبُونَ. Wawu yang dibuang memisahkan fi'il dari nun taukid, jadi tetap mu'rab."],
+["Manakah fi'il mudhari' berikut yang berstatus mabni?",["لَنْ يَكْتُبَ","لَمْ يَكْتُبْ","لَيَكْتُبَنْ","يَكْتُبُونَ"],2,"لَيَكْتُبَنْ: nun taukid khafifah langsung (mabni fathah). Tiga lainnya mu'rab."],
+["Manakah fi'il mudhari' berikut yang berstatus mu'rab?",["لَنْ يَذْهَبْنَ","لَيَذْهَبَنَّ","لَيَذْهَبَنْ","لَمْ يَذْهَبَا"],3,"لَمْ يَذْهَبَا mu'rab (majzum dengan dibuangnya nun). Tiga lainnya mabni."],
+["يَا بَنَاتُ لَا تَكْذِبْنَ. Apa status dan i'rab تَكْذِبْنَ؟",["مُعْرَبٌ مَجْزُومٌ بِلَا النَّاهِيَةِ وَعَلَامَةُ جَزْمِهِ السُّكُونُ",MS+" فِي مَحَلِّ جَزْمٍ بِلَا النَّاهِيَةِ",MF+" فِي مَحَلِّ جَزْمٍ","مَجْزُومٌ بِحَذْفِ النُّونِ"],1,"Nun niswah membuatnya mabni sukun; karena didahului la nahiyah, mahal jazm."]];
+const N=Q.length,L="ABCD";let ans=[],i=0,nama="",kelas="",dbm=null,uid=null;
+const $=s=>document.querySelector(s),app=$("#app");
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function start(){app.innerHTML="";const c=el("div","card");c.append(el("p","mut","20 soal pilihan ganda. Jawaban benar dan penjelasan singkat tampil setelah semua soal selesai."));
+ c.append(el("label","","Nama lengkap"));const a=el("input");a.autocomplete="name";c.append(a);c.append(el("label","","Kelas (opsional)"));const b=el("input");c.append(b);
+ const g=el("button","pri","Mulai");g.disabled=true;a.oninput=()=>g.disabled=!a.value.trim();g.onclick=()=>{nama=a.value.trim();kelas=b.value.trim();ans=[];i=0;ask()};c.append(g);app.append(c)}
+function ask(){app.innerHTML="";const c=el("div","card"),q=Q[i];
+ c.append(el("div","mut","Soal "+(i+1)+" dari "+N));const bar=el("div","bar"),f=el("i");f.style.width=(i/N*100)+"%";bar.append(f);c.append(bar);
+ const p=el("div","q",q[0]);p.dir="auto";c.append(p);const nx=el("button","pri",i<N-1?"Lanjut":"Selesai");nx.disabled=ans[i]===undefined;
+ q[1].forEach((o,k)=>{const b=el("button","opt",L[k]+".  "+o);b.dir="auto";b.setAttribute("aria-pressed",ans[i]===k);b.onclick=()=>{ans[i]=k;c.querySelectorAll(".opt").forEach((x,j)=>x.setAttribute("aria-pressed",j===k));nx.disabled=false};c.append(b)});
+ if(i>0){const bk=el("button","sec","Kembali");bk.onclick=()=>{i--;ask()};c.append(bk)}
+ nx.onclick=()=>{if(i<N-1){i++;ask()}else done()};c.append(nx);app.append(c)}
+async function done(){const benar=ans.filter((a,k)=>a===Q[k][2]).length,skor=Math.round(benar/N*100);app.innerHTML="";
+ const c=el("div","card");c.append(el("div","mut",nama+(kelas?" · "+kelas:"")));c.append(el("div","score",skor));c.append(el("p","mut","Benar "+benar+" dari "+N+" soal"));
+ const st=el("p","mut","Menyimpan nilai...");c.append(st);app.append(c);
+ const code=nama+"|"+kelas+"|"+skor+"|"+benar+"/"+N;
+ try{if(!dbm)throw 0;await dbm.doc("hasil/"+uid).set({nama,kelas,skor,benar,total:N,jawaban:ans.map(a=>L[a]).join(""),waktu:new Date().toISOString()});st.textContent="Nilaimu sudah terkirim ke guru."}
+ catch(e){st.textContent="Nilai belum tersimpan otomatis. Kirim kode ini ke guru: "+code;const cp=el("button","sec","Salin kode");cp.onclick=()=>{try{navigator.clipboard.writeText(code);cp.textContent="Tersalin"}catch(_){}};c.append(cp)}
+ const h=el("h2","","Pembahasan");h.style.fontSize="1.2rem";app.append(h);
+ Q.forEach((q,k)=>{const ok=ans[k]===q[2],r=el("div","rv "+(ok?"ok":"no"));r.append(el("b","t",(ok?"BENAR":"SALAH")+" · Soal "+(k+1)));const p=el("div","",q[0]);p.dir="auto";r.append(p);
+  if(!ok){const y=el("div","","Jawabanmu: "+L[ans[k]]+". "+q[1][ans[k]]);y.dir="auto";r.append(y)}
+  const w=el("div","","Jawaban benar: "+L[q[2]]+". "+q[1][q[2]]);w.dir="auto";w.style.fontWeight="700";r.append(w);const e=el("div","mut",q[3]);e.dir="auto";r.append(e);app.append(r)});
+}
+start();
+// guru
+(async()=>{try{const u=await claude.use("user");dbm=await claude.use("db");if(u)uid=await u.id();if(!uid)dbm=null;
+ if(!(u&&u.isOwner())||!dbm)return;const t=$("#teach"),c=el("div","card");c.append(el("h2","","Rekap nilai (hanya guru)"));const tb=el("table"),box=el("div");box.style.overflowX="auto";const dl=el("button","sec","Unduh CSV (buka di Excel/Google Sheets)");c.append(box,dl);box.append(tb);t.append(c);let rows=[];
+ dbm.collection("hasil").onSnapshot(s=>{rows=s.docs.map(d=>d.data()).filter(Boolean).sort((a,b)=>(b.skor||0)-(a.skor||0));tb.innerHTML="";const hr=el("tr");["Nama","Kelas","Nilai","Benar"].forEach(x=>hr.append(el("th","",x)));tb.append(hr);
+  rows.forEach(r=>{const tr=el("tr");[r.nama,r.kelas,r.skor,r.benar+"/"+r.total].forEach(x=>tr.append(el("td","",String(x??""))));tb.append(tr)})},()=>{});
+ dl.onclick=async()=>{const d=await claude.use("downloads");if(!d)return;const q=v=>'"'+String(v??"").replace(/"/g,'""')+'"';const csv="\ufeffNama,Kelas,Nilai,Benar,Total,Jawaban,Waktu\n"+rows.map(r=>[r.nama,r.kelas,r.skor,r.benar,r.total,r.jawaban,r.waktu].map(q).join(",")).join("\n");try{await d.save({filename:"nilai-nahwu.csv",data:csv})}catch(_){}}}catch(e){}})();
+</script></body></html>
